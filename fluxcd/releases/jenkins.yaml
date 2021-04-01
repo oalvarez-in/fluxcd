@@ -8,7 +8,10 @@ spec:
   chart:
     repository: https://charts.bitnami.com/bitnami
     name: jenkins
-    version: 1.0.0
-  valuesFrom:
-    - chartFileRef:
-      path: fluxcd/releases/jenkins/values.yaml
+    version: 7.3.9
+  values:
+    persistence:
+      enable: true
+      accessModes:
+        - ReadWriteOnce
+      size: 5Gi
