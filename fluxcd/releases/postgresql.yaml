@@ -1,0 +1,27 @@
+apiVersion: helm.fluxcd.io/v1
+kind: HelmRelease
+metadata:
+  name: postgresql
+  namespace: arkon-postgresql
+spec:
+  releaseName: postgresql
+  chart:
+    repository: https://charts.bitnami.com/bitnami
+    name: postgresql
+    version: 10.3.14
+  values:
+    replicaCount: 1
+    persistence:
+      enable: true
+      accessModes:
+        - ReadWriteOnce
+      size: 9Gi
+    replication:
+      enabled: false
+      user: oalvarez
+      password: hola
+      readReplicas: 1
+      synchronousCommit: "off"
+      numSynchronousReplicas: 0
+      applicationName: my_application
+    postgresqlDatabase: devops

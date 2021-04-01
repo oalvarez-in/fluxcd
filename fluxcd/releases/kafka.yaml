@@ -1,0 +1,18 @@
+apiVersion: helm.fluxcd.io/v1
+kind: HelmRelease
+metadata:
+  name: kafka
+  namespace: arkon-kafka
+spec:
+  releaseName: kafka
+  chart:
+    repository: https://charts.bitnami.com/bitnami
+    name: kafka
+    version: 12.15.1
+  values:
+    replicaCount: 3
+    persistence:
+      enable: true
+      accessModes:
+        - ReadWriteOnce
+      size: 10Gi

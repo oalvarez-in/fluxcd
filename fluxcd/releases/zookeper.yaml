@@ -1,0 +1,18 @@
+apiVersion: helm.fluxcd.io/v1
+kind: HelmRelease
+metadata:
+  name: zookeper
+  namespace: arkon-zookeper
+spec:
+  releaseName: zookeper
+  chart:
+    repository: https://charts.bitnami.com/bitnami
+    name: zookeper
+    version: 6.6.0
+  values:
+    replicaCount: 3
+    persistence:
+      enable: true
+      accessModes:
+        - ReadWriteOnce
+      size: 10Gi
