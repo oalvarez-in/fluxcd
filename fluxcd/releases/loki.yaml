@@ -1,5 +1,5 @@
 ---
-apiVersion:  helm.fluxcd.io/v1
+apiVersion: helm.fluxcd.io/v1
 kind: HelmRelease
 metadata:
   name: loki-stack
@@ -13,7 +13,7 @@ spec:
   values:
     promtail:
       serviceMonitor:
-        enabled: true
+        enabled: false
         additionalLabels:
         app: prometheus-operator
         release: prometheus
