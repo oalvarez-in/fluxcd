@@ -1,0 +1,13 @@
+apiVersion: helm.fluxcd.io/v1
+kind: HelmRelease
+metadata:
+  name: jenkins
+  namespace: arkon-jenkins
+spec:
+  releaseName: jenkins
+  chart:
+    repository: https://charts.bitnami.com/bitnami
+    name: jenkins
+  valuesFrom:
+    - chartFileRef:
+      path: fluxcd/releases/jenkins/values.yaml
