@@ -1,0 +1,19 @@
+---
+apiVersion:  helm.fluxcd.io/v1
+kind: HelmRelease
+metadata:
+  name: loki-stack
+  namespace: monitoring
+spec:
+  releaseName: loki-stack
+  chart:
+    repository: https://grafana.github.io/loki/charts
+    name: loki-stack
+    version: 0.38.3
+  values:
+    promtail:
+      serviceMonitor:
+        enabled: true
+        additionalLabels:
+        app: prometheus-operator
+        release: prometheus
