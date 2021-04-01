@@ -7,7 +7,8 @@ spec:
   releaseName: jenkins
   chart:
     repository: https://charts.bitnami.com/bitnami
-    name: bitnami/jenkins
+    name: jenkins
+    version: 1.0.0
   valuesFrom:
     - chartFileRef:
       path: fluxcd/releases/jenkins/values.yaml
