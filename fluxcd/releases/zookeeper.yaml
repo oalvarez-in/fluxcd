@@ -1,13 +1,13 @@
 apiVersion: helm.fluxcd.io/v1
 kind: HelmRelease
 metadata:
-  name: zookeper
-  namespace: arkon-zookeper
+  name: zookeeper
+  namespace: arkon-zookeeper
 spec:
-  releaseName: zookeper
+  releaseName: zookeeper
   chart:
     repository: https://charts.bitnami.com/bitnami
-    name: zookeper
+    name: zookeeper
     version: 6.6.0
   values:
     replicaCount: 3

@@ -2,7 +2,7 @@ apiVersion: helm.fluxcd.io/v1
 kind: HelmRelease
 metadata:
   name: postgresql
-  namespace: arkon-postgresql
+  namespace: arkon-postgres
 spec:
   releaseName: postgresql
   chart:
